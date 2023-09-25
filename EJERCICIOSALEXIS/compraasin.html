@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function comprarProductos(carrito) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+            const compraExitosa = Math.random() < 0.8; 
+
+            if (compraExitosa) {
+                resolve('Compra realizada con éxito');
+            } else {
+                reject('Error al procesar la compra');
+            }
+            }, 2000); 
+        });
+        }
+
+        const carrito = ['Producto 1', 'Producto 2', 'Producto 3'];
+
+        comprarProductos(carrito)
+        .then((mensaje) => {
+            console.log(mensaje); 
+        })
+        .catch((error) => {
+            console.error(error); 
+        })   
+    </script>
+</body>
+</html>

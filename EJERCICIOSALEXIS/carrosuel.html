@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+    <style>
+        body{
+            background-image: url(./image-Cpdtdm5Yv-transformed.png);
+        }
+        .box{
+            background-color:gray;
+            width: 31.5rem;
+            height: 20rem;
+            border: 5rem;
+            border-style: double;
+            padding: 1rem;
+            margin: 0 auto;
+            align-items: center;
+            align-content: center;
+
+        }
+        .carousel-container {
+            position: relative;
+            width: 500px;
+            overflow: hidden;
+            border-style: solid;
+            align-items: center;
+            margin: 0 auto;
+        }
+        
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-button {
+            cursor: pointer;
+            margin: 0 auto;
+            align-content: center;
+        }
+        button{
+            background-color: lightseagreen;
+            border: 2rem;
+            padding: 5rem, 10rem;
+            margin: 0 auto;
+            cursor: pointer;
+            object-position: 0 auto;
+            width: 5rem;
+            height: 2rem;
+            border-radius: 5rem;
+            font-family: cursive;
+            font: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="./figma.jpg" alt="Imagen 1">
+                <img src="./figma2.jpg" alt="Imagen 2">
+                <img src="./figma3.jpg" alt="Imagen 3">
+            </div>
+        </div>
+        <button class="carousel-button" onclick="prevSlide()">Anterior</button>
+        <button class="carousel-button" onclick="nextSlide()">Siguiente</button>
+    </div>
+    <script>
+        const container = document.querySelector('.carousel-container');
+        const slide = document.querySelector('.carousel-slide');
+        const images = document.querySelectorAll('.carousel-slide img');
+        const buttons = document.querySelectorAll('.carousel-button');
+        let currentIndex = 0;
+
+        function updateSlide() {
+            slide.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateSlide();
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateSlide();
+        }
+
+
+        updateSlide();
+    </script>
+</body>
+</html>
