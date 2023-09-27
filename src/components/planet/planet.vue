@@ -1,6 +1,6 @@
 <template>
     <div class="grid grid-cols-3 gap-6 px-12">
-        <section class="cal-span-2 flex justify-center">
+        <section class="col-span-2 flex justify-center">
             <img src="@/assets/planets/earth.svg" alt="Planeta">
         </section>
         <section>
